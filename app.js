@@ -51,7 +51,6 @@ const sortOfOldest= inventors.sort(function(firstPerson, secondPerson){
 })
 console.table(sortOfOldest);
   // 6. create a list of Boulevards in Paris that contain 'de' anywhere in the name
-  // https://en.wikipedia.org/wiki/Category:Boulevards_in_Paris
   const boulevards = ["Boulevards of Paris", "City walls of Paris", "Thiers wall", "Wall of Charles V",
 "Wall of Philip II Augustus", "Boulevard des Capucines", "Boulevard de la Chapelle", "Boulevard de Clichy",
 "Boulevard du Crime", "Boulevard Malesherbes", "Boulevard Marguerite-de-Rochechouart", "Boulevard Montmartre",
@@ -60,11 +59,24 @@ console.table(sortOfOldest);
 "Boulevard de l'Hôpital", "Boulevard Auguste-Blanqui", "Boulevard des Italiens", "Boulevard du Temple",
 "Boulevard Voltaire", "Boulevard Lefebvre", "Boulevard Barbès", "Boulevard Beaumarchais", "Boulevard de l'Amiral-Bruix", "Boulevard Mortier", "Boulevard Poniatowski", "Boulevard Soult", "Boulevard de la Madeleine", "Boulevard de Magenta", "Boulevard de la Zone"
 ]
-
+const listOfBoulvards= boulevards.filter(item =>item.includes('de'))
+console.table(listOfBoulvards);
 
   // 7. sort Exercise
   // Sort the people alphabetically by last name
-
+const peopleAlpha= people.sort((firstPersonal, secondPersonal)=>{
+    return firstPersonal>secondPersonal?1:-1
+})
+console.table(peopleAlpha)
   // 8. Reduce Exercise
   // Sum up the instances of each of these
   const data = ['car', 'car', 'truck', 'truck', 'bike', 'walk', 'car', 'van', 'bike', 'walk', 'car', 'van', 'car', 'truck' ];
+
+  const transportation=data.reduce(function(obj,item){
+      if (!obj[item]) {
+          obj[item]=0;
+      }
+      obj[item]++;
+      return obj;
+  },{})
+  console.log(transportation);
